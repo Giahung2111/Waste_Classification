@@ -54,37 +54,29 @@ The process of building NEU-Bin consists of two stages:
 |       InceptionV3       |        82.50         |            21.9            |
 
 ## Usage
-#### Download and unzip
-```
-$ git clone https://github.com/209sontung/NEU-Bin.git
-```
-You can download the trained model [here](https://drive.google.com/file/d/1wamwLZsclQYYsx5dLThTqZG5sJSLR7oS/view?usp=sharing)
 
-#### Change the model
 ```
-model = load_model('model_5class_resnet_87%.h5')
-```
-#### Other minor changes
+You must download the trained model [here](https://drive.google.com/file/d/1wamwLZsclQYYsx5dLThTqZG5sJSLR7oS/view?usp=sharing)
 
-* To change input camera (0 means built-in camera):
-```
-cap = cv2.VideoCapture(0)
+#### Change the model path
+model = load_model('your_model_path')
 ```
 
-* To change threshold:
-```
-threshold = 0.85 
-```
-Lower the threshold, lower the confidence of the model
 
-## Run the code and start detection
+### Run the code and start detection
 Run the code and the detection will start. Hit `Q` to exit.
 
-<img src="https://github.com/209sontung/NEU-Bin/blob/main/img/examples.png" alt="alt text" width="600" height="800">
+### RUN APP
+`uvicorn main:app --reload`
 
-## Contact
-- Supervisor: [Tuan Nguyen](https://www.facebook.com/nttuan8)
-- Team Members: [Tung Nguyen](https://www.facebook.com/gnutn0s), [Duc Ha](https://www.facebook.com/ha5minh2duc), [Ha Phuong Dinh](https://www.facebook.com/profile.php?id=100008189945262)
+### CHANGE YOUR IMAGE PATH TO TEST THE MODEL OR YOU CAN RUN WITH POSTMAN
+```python
+curl -X POST http://127.0.0.1:8000/predict/ -F "file=@"C:/Python/Garbage_Classification/NEU-Bin/img/paper1.png""
+```
+
+
+
+
 
 
 
